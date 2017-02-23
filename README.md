@@ -25,7 +25,8 @@ Next, install other dependencies using PyPI:
 `pip install openpyxl matplotlib`  
 
 # Run
-First, change the working direcory to the project directory. Then:  
+First, change the working direcory to the project directory. Then, put all the test xlsx files to a subdirectory named `testdata`. Finally, launch the script as following and the program should output a prediction.
+
 ### macOS and Ubuntu/Debian
 `python3 ./src/machine_learning.py`
 
