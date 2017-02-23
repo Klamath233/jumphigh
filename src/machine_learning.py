@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 def parse_all():
     """Returns a list of dictionaries representing the data parsed from /data directory."""
-    file_names = map(lambda x: ("./data/" + x, x.split(".")[0]), os.listdir("./data"))
+    file_names = map(lambda x: ("../data/" + x, x.split(".")[0]), os.listdir("../data"))
     workbooks = map(lambda x: (load_workbook(x[0]), x[1]),
                     file_names)
     sheets = map(lambda x: (x[0]["Sheet1"], x[1]),
@@ -53,7 +53,7 @@ def plot():
     plt.show()
 
 def generate_test_samples():
-    file_names = map(lambda x: ("./testdata/" + x, x.split(".")[0]), os.listdir("./data"))
+    file_names = map(lambda x: ("../testdata/" + x, x.split(".")[0]), os.listdir("../testdata"))
     workbooks = map(lambda x: (load_workbook(x[0]), x[1]),
                     file_names)
     sheets = map(lambda x: (x[0]["Sheet1"], x[1]),
@@ -112,11 +112,11 @@ def createmodel():
         predicted_y = reg.predict(xset[ts])
         predicted.append(predicted_y)
     predicted = cross_val_predict(reg, xset, yset, cv=22)
-    print mean_absolute_error(yset, predicted)
+    print(mean_absolute_error(yset, predicted))
     reg.fit(xset,yset)
     testsamples = generate_test_samples()
     res = reg.predict[testsamples]
-    print res
+    print(res)
 
 
 #plot()
